@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Ensure apache2 service is installed and running via puppet resource
+puppet resource service apache2 ensure=running enable=true
+
+# Remove directory /tmp/22053119/clone and recreate directory /tmp/22053119/clone via puppet resource
+puppet resource file /tmp/22053119/clone ensure=absent
+puppet resource file /tmp/22053119/clone ensure=directory
+
+# Clone 22053119_repo to container's /tmp/22053119/clone 
+cd /tmp/22053119/clone
+git clone https://github.com/nguiweily/22053119_repo.git
+
+# Copy new index.html to replace /var/www/html/index.html 
+cp /tmp/22053119/clone/22053119_index.html /var/www/html/index.html
