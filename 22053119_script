@@ -9,7 +9,7 @@ puppet resource file /tmp/22053119/clone ensure=directory
 
 # Clone 22053119_repo to container's /tmp/22053119/clone 
 cd /tmp/22053119/clone
-git clone https://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@github.com/nguiweily/22053119_repo.git
+git clone https://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@github.com/nguiweily/22053119_repo
 
 # Copy new index.html to replace /var/www/html/index.html 
 cp /tmp/22053119/clone/22053119_index.html /var/www/html/index.html
