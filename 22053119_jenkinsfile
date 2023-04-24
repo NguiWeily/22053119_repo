@@ -23,6 +23,8 @@ pipeline {
         stage('22053119 STG4') {
             steps {
                 sh 'curl -Is http://22053119-websvr.localdomain | head -n 1 > /tmp/web-test-result'
+                sh 'cat /tmp/web-test-result'
+                sh 'grep "HTTP/1.1 200 OK" /tmp/web-test-result || exit 1'
                 sh 'echo "STG4: Production web server testing completed"'
             }
         }
