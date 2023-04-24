@@ -10,7 +10,7 @@ pipeline {
         }
         stage('22053119 STG2') {
             steps {
-                sh 'bolt script run /tmp/22053119/22053119_script --targets 22053119-websvr -u clientadm -p user123 --no-host-key-check --run-as root'
+                sh 'bolt script run https://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@github.com/nguiweily/22053119_repo/22053119_script --targets 22053119-websvr -u clientadm -p user123 --no-host-key-check --run-as root'
                 sh 'echo "22053119 STG2 - Push to production web server completed"'
             }
         }
