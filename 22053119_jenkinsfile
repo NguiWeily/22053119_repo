@@ -10,7 +10,7 @@ pipeline {
         }
         stage('22053119 STG2') {
             steps {
-                sh 'bolt script run /tmp/22053119/22053119_script --nodes 192.168.20.50 --no-host-key-check --run-as root'
+                sh 'bolt script run /tmp/22053119/22053119_script 22053119-websvr --no-host-key-check --run-as root'
                 sh 'echo "22053119 STG2 - Push to production web server completed"'
             }
         }
