@@ -5,19 +5,19 @@ pipeline {
         stage('22053119 STG1') {
             steps {
                 sh 'echo "22053119 STG1: Push change to production web server?"'
-                input message: 'Proceed or Abort?', submitter: 'admin'
+                input message: 'Proceed or Abort?', submitter: 'jadmin'
             }
         }
         stage('22053119 STG2') {
             steps {
-                sh 'bolt script run nguiweily/22053119_repo/22053119_script --nodes 192.168.20.50'
+                sh 'bolt script run /tmp/22053119/22053119_script --nodes 192.168.20.50'
                 sh 'echo "22053119 STG2 - Push to production web server completed"'
             }
         }
         stage('22053119 STG3') {
             steps {
                 sh 'echo "22053119 STG3: Proceed to test production web service?"'
-                input message: 'Proceed or Abort?', submitter: 'admin'
+                input message: 'Proceed or Abort?', submitter: 'jadmin'
             }
         }
         stage('22053119 STG4') {
@@ -29,7 +29,7 @@ pipeline {
         stage('22053119 STG5') {
             steps {
                 sh 'echo "22053119 STG5: Web server testing result has been inspected"'
-                input message: 'Proceed or Abort?', submitter: 'admin'
+                input message: 'Proceed or Abort?', submitter: 'jadmin'
             }
         }
         stage('22053119 STG6') {
