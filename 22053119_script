@@ -7,12 +7,12 @@ puppet resource package apache2 ensure=present
 puppet resource service apache2 ensure=running enable=true
 
 # Remove directory /tmp/22053119/clone and recreate directory /tmp/22053119/clone via puppet resource
-puppet resource file /tmp/22053119/clone ensure=absent force=true
-puppet resource file /tmp/22053119/clone ensure=directory
+puppet resource file /temp/22053119/clone ensure=absent force=true
+puppet resource file /temp/22053119/clone ensure=directory
 
 # Clone 22053119_repo to container's /tmp/22053119/clone 
-cd /tmp/22053119/clone
+cd /temp/22053119/clone
 git clone https://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@github.com/nguiweily/22053119_repo.git
 
 # Copy new index.html to replace /var/www/html/index.html 
-cp -p /tmp/22053119/clone/22053119_index.html /var/www/html/index.html
+cp -p /temp/22053119/clone/22053119_index.html /var/www/html/index.html
