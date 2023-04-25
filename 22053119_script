@@ -9,8 +9,8 @@ puppet resource service apache2 ensure=running enable=true
 # Remove directory and recreate directory via puppet resource
 puppet resource file /temp/22053119/clone ensure=absent force=true
 puppet resource file /temp/22053119/clone ensure=directory
-puppet resource file /temp/web-test-result ensure=absent force=true
-puppet resource file /temp/web-test-result ensure=directory
+puppet resource file /web-test-result ensure=absent force=true
+puppet resource file /web-test-result ensure=directory
 
 # Clone 22053119_repo to container's /temp/22053119/clone 
 cd /temp/22053119/clone
