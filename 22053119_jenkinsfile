@@ -22,14 +22,14 @@ pipeline {
         }
         stage('22053119 STG4') {
             steps {
-                sh 'curl -Is http://22053119-websvr.localdomain | head -n 1 > /web-test-result'
+                sh 'curl -Is http://22053119-websvr.localdomain | head -n 1 > /web-test-result/curl.test'
                 sh 'echo "22053119 STG4: Production web server testing completed"'
             }
         }
         stage('22053119 STG5') {
             steps {
-                sh 'cat /web-test-result'
-                sh 'grep "HTTP/1.1 200 OK" /web-test-result || exit 1'
+                sh 'cat /web-test-result/curl.test'
+                sh 'grep "HTTP/1.1 200 OK" /web-test-result/curl.test || exit 1'
                 sh 'echo "22053119 STG5: Web server testing result has been inspected"'
                 input message: 'Proceed or Abort?', submitter: 'jadmin'
             }
